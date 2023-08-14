@@ -1,0 +1,48 @@
+@import "../../styles/utils/variables";
+@import "../../styles/utils/mixins";
+@import "../../styles/utils/placeholders";
+
+.Favourites {
+  padding: 25px 0 65px;
+
+  @include onDesktop {
+    padding-bottom: 80px;
+  }
+
+  &__breadcrumbs {
+    margin-bottom: 24px;
+
+    @include onTablet {
+      margin-bottom: 40px;
+    }
+  }
+
+  &__title {
+    @extend %h1;
+    margin-bottom: 8px;
+  }
+
+  &__items {
+    @extend %body-text;
+    margin-bottom: 32px;
+    color: $gray-secondary;
+
+    @include onTablet {
+      margin-bottom: 40px;
+    }
+  }
+
+  &__catalog {
+    margin-bottom: 24px;
+
+    @include onTablet {
+      margin-bottom: 40px;
+    }
+  }
+
+  &__empty-message {
+    @extend %h3;
+    font-family: Mont-Regular, "Helvetica Neue", sans-serif; // Overriding
+    color: $gray-secondary;
+  }
+}

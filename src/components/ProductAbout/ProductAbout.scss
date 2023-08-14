@@ -1,0 +1,96 @@
+@import "../../styles/utils/variables";
+@import "../../styles/utils/mixins";
+@import "../../styles/utils/placeholders";
+
+.ProductAbout {
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+
+  @include onTablet {
+    gap: 64px;
+  }
+
+  @include onDesktop {
+    flex-direction: row;
+  }
+
+  &__content {
+    display: block;
+
+    @include onDesktop {
+      display: grid;
+      grid-template-columns: repeat(24, 1fr);
+      column-gap: 16px;
+    }
+  }
+
+  &__about-info {
+    grid-column: 1 / 13;
+  }
+
+  &__about-title {
+    @extend %h3;
+    padding-bottom: 16px;
+    margin-bottom: 32px;
+    border-bottom: 1px solid $gray-elements;
+  }
+
+  &__about-list {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    margin-bottom: 56px;
+
+    @include onTablet {
+      margin-bottom: 64px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 0;
+    }
+  }
+
+  &__description-title {
+    @extend %h4;
+    margin-bottom: 16px;
+  }
+
+  &__description-text {
+    @extend %body-text;
+    color: $gray-secondary;
+  }
+
+  &__specs-info {
+    grid-column: 14 / 24;
+  }
+
+  &__specs-title {
+    @extend %h3;
+    padding-bottom: 16px;
+    margin-bottom: 32px;
+    border-bottom: 1px solid $gray-elements;
+  }
+
+  &__specs-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__specs-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  &__tech-specs-title {
+    @extend %body-text;
+    color: $gray-secondary;
+  }
+
+  &__tech-specs-text {
+    @extend %body-text;
+    color: $gray-primary;
+  }
+}

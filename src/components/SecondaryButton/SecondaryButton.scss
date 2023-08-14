@@ -1,0 +1,15 @@
+@import "../../styles/utils/variables";
+@import "../../styles/utils/placeholders";
+
+.SecondaryButton {
+  @extend %buttons;
+  height: 40px;
+  color: $green-color;
+  border: 1px solid $white-color;
+  border-color: $gray-elements;
+  transition: border-color $default-transition ease-in-out;
+
+  &:hover {
+    border-color: $gray-primary;
+  }
+}

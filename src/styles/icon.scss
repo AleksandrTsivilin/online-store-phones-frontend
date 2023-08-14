@@ -1,0 +1,69 @@
+@import "./utils/variables";
+@import "./utils/mixins";
+@import "./utils/placeholders";
+
+.icon {
+  width: 100%;
+  height: 64px;
+  display: flex;
+  box-shadow: -1px 0 0 $gray-elements;
+
+  @include onTablet {
+    width: 48px;
+    height: 100%;
+  }
+
+  @include onDesktop {
+    width: 64px;
+  }
+
+  &__link {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 3px;
+      transition: background-color $default-transition ease-in-out;
+    }
+
+    &--active {
+      color: $gray-primary;
+
+      &::after {
+        background: $gray-primary;
+      }
+    }
+  }
+
+  &__image {
+    @include square($header-icon-size);
+    position: relative;
+  }
+
+  &__counter {
+    @include square($header-icon-size);
+    @extend %small-text;
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $white-color;
+    background-color: $red-color;
+    border: 1px solid $white-color;
+    border-radius: 50%;
+  }
+
+  &__counter-text {
+    transform: translateY(1px); // fix for the text centering
+  }
+}

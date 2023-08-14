@@ -1,0 +1,60 @@
+@import "../../styles/utils/variables";
+@import "../../styles/utils/mixins";
+@import "../../styles/utils/placeholders";
+
+.Pagination {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  gap: 16px;
+
+  @include onTablet {
+    justify-content: center;
+  }
+
+  &__list {
+    display: none;
+
+    @include onTablet {
+      display: flex;
+      gap: 8px;
+    }
+  }
+
+  &__count {
+    @extend %h4;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__item {
+    @include square(32px);
+    @extend %buttons;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid $gray-icons-placeholders;
+    transition: border $default-transition;
+
+    &:hover {
+      border-color: $gray-primary;
+    }
+
+    &--selected {
+      color: $white-color;
+      background-color: $gray-primary;
+      border-color: $gray-primary;
+    }
+
+    &--disabled {
+      cursor: default;
+      pointer-events: none;
+    }
+  }
+}

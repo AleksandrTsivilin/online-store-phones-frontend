@@ -1,0 +1,46 @@
+@import "../../styles/utils/variables";
+@import "../../styles/utils/mixins";
+
+.Icon {
+  & > div {
+    height: 100%;
+
+    &:hover > * {
+      color: $gray-primary;
+    }
+  }
+
+  & > div > div {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $gray-icons-placeholders;
+    transition: color $default-transition ease-in-out;
+  }
+
+  &[class*="disabled"] > div {
+    color: $gray-icons-placeholders;
+  }
+
+  &[class*="arrow"] > div > div {
+    color: $gray-primary;
+  }
+
+  &[class*="like"] > div > div {
+    color: $gray-primary;
+  }
+
+  &[class*="cart"] > div > div {
+    color: $gray-primary;
+  }
+
+  &[class*="disabled"] > div > div {
+    color: $gray-icons-placeholders;
+  }
+
+  &[class*="close"] > div :hover {
+    transition: color $default-transition ease-in-out;
+    color: $gray-primary;
+  }
+}

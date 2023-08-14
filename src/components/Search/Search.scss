@@ -1,0 +1,73 @@
+@import "../../styles/utils/variables";
+@import "../../styles/utils/mixins";
+@import "../../styles/utils/placeholders";
+
+.Search {
+  display: none;
+
+  @include onDesktop {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  &__content {
+    position: relative;
+  }
+
+  &__input {
+    @extend %body-text;
+    padding-left: 48px;
+    padding-right: 14px;
+    width: 300px;
+    height: $header-height-desktop;
+    color: $gray-secondary;
+    border: 1px solid $gray-elements;
+    transition: border $default-transition ease-in-out,
+      color $default-transition ease-in-out;
+
+    &::placeholder {
+      color: $gray-icons-placeholders;
+      transition: color $default-transition ease-in-out;
+    }
+
+    &:focus::placeholder {
+      color: $gray-secondary;
+    }
+
+    &:focus {
+      color: $gray-primary;
+      outline: none;
+    }
+  }
+
+  &__icon {
+    @include square(16px);
+    height: 100%;
+    position: absolute;
+    padding-inline: 24px;
+    background-image: url("../../assets/icons/Search.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+  }
+
+  &__dropdown {
+    position: absolute;
+    top: 52px;
+    width: 100%;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-20px);
+    transition: opacity $default-transition ease-in-out,
+      transform $default-transition ease-in-out;
+
+    &--opened {
+      opacity: 1;
+      pointer-events: all;
+      transform: translateX(0);
+      transition: opacity $default-transition ease-in-out,
+        transform $default-transition ease-in-out;
+    }
+  }
+}

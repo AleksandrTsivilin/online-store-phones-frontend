@@ -1,0 +1,70 @@
+@import "../../styles/utils/variables";
+@import "../../styles/utils/mixins";
+@import "../../styles/utils/placeholders";
+
+.Footer {
+  background-color: $white-color;
+  box-shadow: 0 -1px 0 0 $gray-elements;
+
+  &__content {
+    padding-block: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+
+    @include onTablet {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    @include onTablet {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    @include onDesktop {
+      min-width: 400px;
+    }
+  }
+
+  &__link {
+    @extend %uppercase;
+    display: block;
+    color: $gray-secondary;
+    transition: color $default-transition;
+
+    &:hover {
+      color: $gray-primary;
+    }
+  }
+
+  &__button {
+    @extend %small-text;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    color: $gray-secondary;
+    transition: color $default-transition;
+
+    &:hover {
+      color: $gray-primary;
+    }
+  }
+
+  &__button-icon {
+    border: 1px solid $gray-icons-placeholders;
+    transition: border-color $default-transition;
+  }
+}
+
+.Footer__button:hover .Footer__button-icon {
+  border-color: $gray-primary;
+}

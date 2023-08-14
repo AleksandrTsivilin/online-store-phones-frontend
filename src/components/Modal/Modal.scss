@@ -1,0 +1,78 @@
+@import "../../styles/utils/variables";
+@import "../../styles/utils/mixins";
+@import "../../styles/utils/placeholders";
+
+.Modal {
+  z-index: $z-index-modal;
+  @include square(100%);
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &__content {
+    position: relative;
+    padding: 24px;
+    min-width: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: $white-color;
+    box-shadow: 0 2px 16px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  @include onTablet {
+    padding: 40px;
+  }
+
+  &__close-button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    padding: 10px;
+
+    &:hover > div > div > div { // :)
+      color: $gray-primary;
+    }
+  }
+
+  &__success {
+    width: 40px;
+    margin-bottom: 14px;
+
+    @include onTablet {
+      width: 60px;
+      margin-bottom: 18px;
+    }
+
+    @include onDesktop {
+      width: 80px;
+      margin-bottom: 24px;
+    }
+  }
+
+  &__title {
+    @extend %h4;
+    margin-bottom: 4px;
+    color: $gray-primary;
+
+    @include onTablet {
+      margin-bottom: 8px;
+    }
+  }
+
+  &__message {
+    @extend %body-text;
+    margin-bottom: 14px;
+    color: $gray-primary;
+
+    @include onTablet {
+      margin-bottom: 20px;
+    }
+  }
+}

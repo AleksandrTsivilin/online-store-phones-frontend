@@ -1,0 +1,37 @@
+@import "../../styles/utils/variables";
+@import "../../styles/utils/placeholders";
+
+.DropdownItem {
+  padding: 8px 16px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  background-color: $white-color;
+  border: 1px solid $gray-elements;
+  transition: background-color $default-transition ease-in-out;
+
+  &:hover {
+    background-color: $gray-background;
+  }
+
+  &__image {
+    @include square(48px);
+    object-fit: contain;
+    object-position: center;
+  }
+
+  &__description {
+    @extend %body-text;
+    display: inline-block;
+  }
+
+  &__price {
+    @extend %h4;
+
+    &::before {
+      content: "$";
+    }
+  }
+}

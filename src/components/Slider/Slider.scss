@@ -1,0 +1,65 @@
+@import "../../styles/utils/variables";
+@import "../../styles/utils/mixins";
+
+.Slider {
+  width: 100vw;
+  height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $slider-gap;
+
+  @include onTablet {
+    margin-inline: auto;
+    width: calc(100% - ($slider-gap + $slider-button-width) * 2);
+    height: 400px;
+  }
+
+  &__slides {
+    @include square(100%);
+    position: relative;
+  }
+
+  &__swiper {
+    @include square(100%);
+    position: absolute;
+    top: 0;
+    right: $container-padding-mobile;
+    display: block;
+
+    @include onTablet {
+      position: static;
+    }
+  }
+
+  &__button {
+    display: none;
+
+    @include onTablet {
+      width: $slider-button-width;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid $gray-icons-placeholders;
+      transition: border $default-transition ease-in-out;
+    }
+
+    &:hover {
+      border: 1px solid $gray-primary;
+    }
+  }
+
+  &__image {
+    @include square(100%);
+    object-fit: cover;
+    object-position: center;
+    cursor: pointer;
+    transition: transform $default-transition * 3 ease-in-out;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}

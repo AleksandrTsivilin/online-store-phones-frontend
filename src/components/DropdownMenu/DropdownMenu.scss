@@ -1,0 +1,25 @@
+@import "../../styles/utils/variables";
+
+.DropdownMenu {
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid $gray-elements;
+  background-color: $white-color;
+
+  &__empty-message {
+    padding: 8px 16px;
+    width: 100%;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: 1px solid $gray-elements;
+    transition: background-color $default-transition ease-in-out;
+
+    &:hover {
+      background-color: $gray-background;
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "singleQuote": true,
+  "tabWidth": 2,
+  "semi": true,
+  "jsxSingleQuote": false,
+  "bracketSpacing": true,
+  "bracketSameLine": true,
+  "overrides": [
+    {
+      "files": "*.scss",
+      "options": {
+        "singleQuote": false
+      }
+    }
+  ]
+}

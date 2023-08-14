@@ -1,0 +1,33 @@
+@import "../../styles/utils/variables";
+@import "../../styles/utils/mixins";
+
+.BurgerMenu {
+  z-index: $z-index-burger-menu;
+  position: fixed;
+  top: $header-height-mobile;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transform: translateX(100%);
+  padding-top: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: $white-color;
+  border-top: 1px solid $gray-elements;
+  transition: transform $default-transition * 2 ease-in-out;
+
+  @include onTablet {
+    display: none;
+  }
+
+  &--opened {
+    transform: translateX(0);
+  }
+
+  &__icons {
+    display: flex;
+    flex-direction: row;
+    border-top: 1px solid $gray-elements;
+  }
+}

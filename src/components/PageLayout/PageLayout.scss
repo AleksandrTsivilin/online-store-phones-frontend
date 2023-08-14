@@ -1,0 +1,72 @@
+@import "../../styles/utils/variables";
+@import "../../styles/utils/mixins";
+@import "../../styles/utils/placeholders";
+
+.PageLayout {
+  padding: 25px 0 65px;
+  height: 100%;
+
+  @include onDesktop {
+    padding-bottom: 80px;
+  }
+
+  &__breadcrumbs {
+    margin-bottom: 24px;
+
+    @include onTablet {
+      margin-bottom: 40px;
+    }
+  }
+
+  &__title {
+    @extend %h1;
+    margin-bottom: 8px;
+  }
+
+  &__error {
+    @include square(100%);
+    padding-block: 40px;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__models {
+    @extend %body-text;
+    margin-bottom: 32px;
+    color: $gray-secondary;
+
+    @include onTablet {
+      margin-bottom: 40px;
+    }
+  }
+
+  &__actions {
+    margin-bottom: 24px;
+  }
+
+  &__loader {
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__catalog {
+    margin-bottom: 24px;
+
+    @include onTablet {
+      margin-bottom: 40px;
+    }
+  }
+
+  &__empty-message {
+    @extend %h3;
+    font-family: Mont-Regular, "Helvetica Neue", sans-serif; // Overriding
+    color: $gray-secondary;
+  }
+
+  &__pagination {
+    display: flex;
+    justify-content: center;
+  }
+}

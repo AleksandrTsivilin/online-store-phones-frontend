@@ -1,0 +1,24 @@
+@import "../../styles/utils/mixins";
+
+.Logo {
+  display: block;
+  background-image: url("../../assets/icons/Logo.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  &--header {
+    width: 64px;
+    height: 22px;
+
+    @include onDesktop {
+      width: 80px;
+      height: 28px;
+    }
+  }
+
+  &--footer {
+    width: 90px;
+    height: 32px;
+  }
+}

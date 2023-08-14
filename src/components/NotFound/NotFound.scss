@@ -1,0 +1,63 @@
+@import "../../styles/utils/variables";
+@import "../../styles/utils/mixins";
+@import "../../styles/utils/placeholders";
+@import "../../styles/utils/keyframes";
+
+.NotFound {
+  height: 100%;
+  padding-block: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: $white-color;
+
+  &__title {
+    @extend %h1;
+    margin-bottom: 10px;
+    display: block;
+    font-size: 100px;
+    line-height: 100px;
+    text-align: center;
+    background: -webkit-repeating-linear-gradient(
+      -45deg,
+      #71b7e6,
+      #69a6ce,
+      #b98acc,
+      #ee8176,
+      #b98acc,
+      #69a6ce,
+      #9b59b6
+    );
+    background-size: 400%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.25);
+    animation: animate-404 10s ease-in-out infinite;
+
+    @include onTablet {
+      font-size: 200px;
+      line-height: 200px;
+    }
+
+    @include onDesktop {
+      font-size: 300px;
+      line-height: 300px;
+    }
+  }
+
+  &__subtitle {
+    @extend %h2;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    color: $gray-primary;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.25);
+  }
+
+  &__description {
+    @extend %h4;
+    margin-bottom: 20px;
+    color: $gray-primary;
+  }
+}

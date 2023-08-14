@@ -1,0 +1,21 @@
+@import "../../styles/utils/variables";
+@import "../../styles/utils/mixins";
+@import "../../styles/utils/placeholders";
+
+.BackButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  color: $gray-secondary;
+  transition: color $default-transition ease-in-out;
+
+  &:hover {
+    color: $gray-primary;
+  }
+
+  &__text {
+    @extend %small-text;
+    transform: translateY(1px); // fix for the text centering
+  }
+}

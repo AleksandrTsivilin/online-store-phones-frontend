@@ -1,0 +1,23 @@
+@import "../../styles/utils/variables";
+@import "../../styles/utils/placeholders";
+
+.MainButton {
+  @extend %buttons;
+  padding: 10px 25px;
+  display: block;
+  color: $white-color;
+  background-color: $gray-primary;
+  transition: box-shadow $default-transition ease-in-out;
+
+  @include onTablet {
+    padding-inline: 35px;
+  }
+
+  @include onDesktop {
+    padding-inline: 45px;
+  }
+
+  &:hover {
+    box-shadow: 0 3px 13px 0 rgba(23, 32, 49, 0.4);
+  }
+}

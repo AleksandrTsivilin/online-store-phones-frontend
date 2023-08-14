@@ -1,0 +1,102 @@
+@import "../../styles/utils/variables";
+@import "../../styles/utils/mixins";
+@import "../../styles/utils/placeholders";
+@import "../../styles/utils/keyframes";
+
+.ProductFilters {
+  display: flex;
+  gap: 16px;
+
+  &__sort-by {
+    width: 136px;
+
+    @include onTablet {
+      width: 176px;
+    }
+  }
+
+  &__limit {
+    width: 136px;
+
+    @include onDesktop {
+      width: 128px;
+    }
+  }
+
+  &__label {
+    @extend %small-text;
+    margin-bottom: 4px;
+    white-space: nowrap;
+    color: $gray-secondary;
+  }
+
+  &__field {
+    @extend %body-text;
+    padding: 12px 10px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid $gray-icons-placeholders;
+    transition: border $default-transition ease-in-out;
+    cursor: pointer;
+
+    &:hover {
+      border-color: $gray-primary;
+    }
+  }
+
+  &__arrow {
+    transition: transform $default-transition ease-in-out;
+    transform: rotate(180deg);
+
+    &--opened {
+      transform: rotate(360deg);
+    }
+  }
+
+  &__option {
+    position: relative;
+  }
+
+  &__list {
+    z-index: 1;
+    position: absolute;
+    top: 4px;
+    width: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-20px);
+    background-color: $white-color;
+    border: 1px solid $gray-elements;
+    box-shadow: 0 2px 15px 0 rgba(0, 0, 0, 0.05);
+    transition: $default-transition ease-in-out;
+
+    &--opened {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(0);
+      transition: $default-transition ease-in-out;
+    }
+  }
+
+  &__item {
+    @extend %body-text;
+    width: 100%;
+    color: $gray-secondary;
+    transition: color $default-transition ease-in-out,
+      background-color $default-transition ease-in-out;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $gray-background;
+      color: $gray-primary;
+    }
+  }
+
+  &__link {
+    @include square(100%);
+    padding: 6px 12px;
+    display: block;
+  }
+}

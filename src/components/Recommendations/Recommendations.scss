@@ -1,0 +1,57 @@
+@import "../../styles/utils/variables";
+@import "../../styles/utils/placeholders";
+
+.Recommendations {
+  display: block;
+
+  &__heading {
+    margin-bottom: 24px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__title {
+    @extend %h2;
+    color: $gray-primary;
+  }
+
+  &__controllers {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+  }
+
+  &__button {
+    @include square(32px);
+    border: 1px solid $gray-icons-placeholders;
+    transition: border-color $default-transition ease-in-out;
+
+    &:hover {
+      border-color: $gray-primary;
+    }
+
+    &--disabled {
+      pointer-events: none;
+    }
+  }
+
+  &__error-message {
+    @extend %h4;
+    padding: 200px;
+    font-family: Mont-Regular, "Helvetica Neue", sans-serif; // Overriding
+    text-align: center;
+    color: $gray-secondary;
+  }
+
+  &__loader {
+    padding-block: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__slider {
+    display: flex;
+  }
+}

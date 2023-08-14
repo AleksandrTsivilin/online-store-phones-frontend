@@ -1,0 +1,200 @@
+@import "../../styles/utils/variables";
+@import "../../styles/utils/mixins";
+@import "../../styles/utils/placeholders";
+
+.Cart {
+  @include square(100%);
+  position: relative;
+  padding: 25px 0 65px;
+
+  @include onDesktop {
+    padding-bottom: 80px;
+  }
+
+  &__content {
+    @include square(100%);
+    transition: filter $default-transition ease-in-out;
+
+    &--blur {
+      filter: blur(20px);
+    }
+  }
+
+  &__go-back {
+    margin-bottom: 24px;
+
+    @include onTablet {
+      margin-bottom: 40px;
+    }
+  }
+
+  &__products {
+    display: block;
+    padding-block: 16px;
+
+    @include onDesktop {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: start;
+      gap: 16px;
+    }
+  }
+
+  &__title {
+    @extend %h1;
+    margin-bottom: 8px;
+  }
+
+  &__list {
+    flex: 1;
+    margin-bottom: 32px;
+  }
+
+  &__item {
+    margin-bottom: 16px;
+    padding: 16px;
+    width: auto;
+    min-width: 256px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid $gray-elements;
+    background: $white-color;
+
+    @include onTablet {
+      padding: 24px;
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 24px;
+    }
+  }
+
+  &__row {
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 28px;
+
+    @include onTablet {
+      margin-bottom: 0;
+      justify-content: space-between;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__image {
+    height: 66px;
+    justify-self: flex-start;
+  }
+
+  &__description {
+    @extend %body-text;
+    width: max-content;
+    display: flex;
+    justify-content: flex-end;
+    flex-grow: 3;
+
+    @include onTablet {
+      width: auto;
+      flex: auto;
+    }
+  }
+
+  &__quantity {
+    @include square(34px);
+    @extend %body-text;
+    line-height: 34px;
+    text-align: center;
+  }
+
+  &__quantity-selector {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__modify-button {
+    border: 1px solid $gray-icons-placeholders;
+    transition: border-color $default-transition ease-in-out;
+
+    &:hover {
+      border-color: $gray-primary;
+    }
+
+    &:disabled {
+      border-color: $gray-elements;
+      pointer-events: none;
+    }
+  }
+
+  &__price {
+    @extend %h3;
+    display: inline;
+    width: max-content;
+
+    @include onTablet {
+      width: 80px;
+    }
+
+    &::before {
+      content: "$";
+    }
+  }
+
+  &__checkout {
+    @extend %body-text;
+    margin-bottom: 32px;
+    padding: 24px;
+    background-color: $white-color;
+    border: 1px solid $gray-elements;
+
+    @include onTablet {
+      min-width: 368px;
+    }
+  }
+
+  &__total-price {
+    @extend %h2;
+    font-size: 32px;
+    line-height: 41px;
+    text-align: center;
+
+    &::before {
+      content: "$";
+    }
+  }
+
+  &__total {
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+    text-align: center;
+    color: $gray-secondary;
+    border-bottom: 1px solid $gray-elements;
+  }
+
+  &__checkout-button {
+    @extend %buttons;
+    width: 100%;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: stretch;
+    color: $white-color;
+    background-color: $gray-primary;
+    transition: box-shadow $default-transition;
+
+    &:hover {
+      box-shadow: 0 3px 13px 0 rgba(23, 32, 49, 0.4);
+    }
+  }
+
+  &__empty-message {
+    @extend %h3;
+    font-family: Mont-Regular, "Helvetica Neue", sans-serif; // Overriding
+    color: $gray-secondary;
+  }
+}

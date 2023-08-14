@@ -1,0 +1,97 @@
+@import "../../styles/utils/variables";
+@import "../../styles/utils/mixins";
+
+.Header {
+  z-index: $z-index-header;
+  position: sticky;
+  top: 0;
+  height: $header-height-mobile;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $white-color;
+  border-block: 1px solid $gray-elements;
+
+  @include onDesktop {
+    height: $header-height-desktop;
+  }
+
+  &__logo {
+    padding-inline: 16px;
+
+    @include onDesktop {
+      padding-inline: 24px;
+    }
+  }
+
+  &__branding {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  &__nav {
+    display: none;
+
+    @include onTablet {
+      height: 100%;
+      display: block;
+    }
+  }
+
+  &__search {
+    display: none;
+
+    @include onTablet {
+      @include square(100%);
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+  }
+
+  &__menu {
+    width: 48px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: -1px 0 0 $gray-elements;
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__toggler {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $white-color;
+  }
+
+  &__menu-icon {
+    @include square($header-icon-size);
+    background-image: url("../../assets/icons/Menu.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: background-image $default-transition ease-in-out;
+
+    &--opened {
+      background-image: url("../../assets/icons/Close.svg");
+    }
+  }
+
+  &__icons {
+    display: none;
+
+    @include onTablet {
+      height: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+}

@@ -1,0 +1,65 @@
+@import "../../styles/utils/variables";
+@import "../../styles/utils/mixins";
+@import "../../styles/utils/placeholders";
+
+.Navigation {
+  height: 100%;
+  display: block;
+
+  @include onTablet {
+    display: flex;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+
+    @include onTablet {
+      flex-direction: row;
+      gap: 32px;
+    }
+
+    @include onDesktop {
+      gap: 64px;
+    }
+  }
+
+  &__item {
+    height: 100%;
+  }
+
+  &__link {
+    @extend %uppercase;
+    position: relative;
+    padding-block: 8px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $gray-secondary;
+    transition: color $default-transition ease-in-out;
+
+    &:hover {
+      color: $gray-primary;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 3px;
+      transition: background-color $default-transition ease-in-out;
+    }
+
+    &--active {
+      color: $gray-primary;
+
+      &::after {
+        background: $gray-primary;
+      }
+    }
+  }
+}

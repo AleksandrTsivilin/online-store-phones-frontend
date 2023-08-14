@@ -1,0 +1,41 @@
+@import "../../styles/utils/mixins";
+
+.ProductLayout {
+  padding-block: 24px 56px;
+
+  @include onTablet {
+    padding-bottom: 64px;
+  }
+
+  @include onDesktop {
+    padding-bottom: 80px;
+  }
+
+  &__breadcrumbs {
+    margin-bottom: 24px;
+
+    @include onTablet {
+      margin-bottom: 40px;
+    }
+  }
+
+  &__go-back {
+    margin-bottom: 16px;
+  }
+
+  &__details {
+    margin-bottom: 64px;
+
+    @include onTablet {
+      margin-bottom: 80px;
+    }
+  }
+
+  &__about {
+    margin-bottom: 64px;
+
+    @include onTablet {
+      margin-bottom: 80px;
+    }
+  }
+}
